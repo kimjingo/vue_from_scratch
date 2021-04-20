@@ -4,63 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
     <style>
-        .color-red{color:red;}
-        .color-blue{color:blue;}
-        .is-loading{ background:red;}
+        body { margin-top : 40px;}
     </style>
 </head>
 <body>
-    <div id="root">
-        
-        <h1 :class="className">Hello, Jay</h1>
-        <h2 v-text="new Date()"></h2>
-        <h3>
-            {{ reverseMsg }}
-        </h3>
-        <ul>
-            <li v-for="name in names" v-text="name">
-            </li>
-        </ul>
-        <input type="text" v-model="newName">
-        <button @click="addName">Add Name</button>
-        <br>
-        <br>
-        <br>
-        <button :title="title">Hover Over Me</button>
-        <br>
-        <br>
-        <br>
-        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+    <div id="root" class="container">
+        <message title="Hello world" body="Lorem ipsum dolor sit amet"></message>
+        <message title="Hello Jingoo" body="It's going to be Okay"></message>
 
+          
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#root',
-            data: {
-                isLoading: false,
-                className: 'color-red',
-                title: 'Now the title is being set through Javascript',
-                names: ['Jingoo', 'Samantha', 'Toni', 'Thomas', 'Tracy']
-            },
-
-            methods: {
-                addName() {
-                    this.names.push(this.newName);
-                    this.newName = '';
-                },
-                toggleClass(){
-                    this.isLoading = true;
-                }
-            },
-            computed:{
-                reverseMsg(){
-                    return this.title.split('').reverse().join('');
-                }
-            }
-        })
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
